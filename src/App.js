@@ -116,10 +116,10 @@ class Game extends React.Component {
       if (crashed) {
         this.setState({ crashed: true, highScore: this.state.score })
       }
-      if (this.state.score > this.state.highScore && this.state.highScore > 0){
+      if (this.state.score > this.state.highScore && this.state.highScore > 0) {
         this.setState({ highScore: this.state.score })
       }
-      this.setState({ grid: gridCopy, bird: birdCopy, towers: towersCopy, score: this.state.score+1 })
+      this.setState({ grid: gridCopy, bird: birdCopy, towers: towersCopy, score: this.state.score + 1 })
     }, 200)
   }
 
@@ -138,15 +138,15 @@ class Game extends React.Component {
 
   render() {
     return (
-    <div>
-      <div onClick={this.handleClick.bind(this)}>
-        <Grid grid={this.state.grid} />
-        {this.state.crashed?<button onClick={this.restart.bind(this)}>Click here to restart the game</button> : 'Score: '+ this.state.score}        
-      </div>
       <div>
-        {this.state.highScore > 0 ? 'Highest Score: ' + this.state.highScore : null}
-      </div>  
-    </div>
+        <div onClick={this.handleClick.bind(this)}>
+          <Grid grid={this.state.grid} />
+          {this.state.crashed ? <button onClick={this.restart.bind(this)}>Click here to restart the game</button> : 'Score: ' + this.state.score}
+        </div>
+        <div>
+          {this.state.highScore > 0 ? 'Highest Score: ' + this.state.highScore : null}
+        </div>
+      </div>
     )
   }
 }
